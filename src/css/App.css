@@ -12,10 +12,19 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-image: url('../yogahero.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+h3 {
+  color: whitesmoke;
+  background: linear-gradient(to right,  rgba(119, 119, 119, 0.493), rgba(0, 0, 0, 0.678));
 }
 
 .section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
 }
