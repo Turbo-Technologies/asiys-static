@@ -6,13 +6,15 @@ export default class App extends Component {
     return (
       <div>
         <nav>
-          <h1 style={{flexGrow:1}}>Anand Ashram</h1>
-          <button>Menu</button>
+          <h2 style={{flexGrow:1}}>Anand Ashram</h2>
+          <button className='btn btn-primary'>Menu</button>
         </nav>
         <div id='heroimage'>
           <h3>Learn Yoga the best way.</h3>
         </div>
-        <div></div>
+        <div id='section'>
+          <div>Hello</div>
+        </div>
       </div>
     )
   }
