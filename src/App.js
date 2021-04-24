@@ -10,8 +10,9 @@ export default class App extends Component {
           <button>Menu</button>
         </nav>
         <div id='heroimage'>
-          
+          <h3>Learn Yoga the best way.</h3>
         </div>
+        <div></div>
       </div>
     )
   }
