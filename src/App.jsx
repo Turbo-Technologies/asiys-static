@@ -9,7 +9,7 @@ export default class App extends Component {
   }
 
   openmenu(){
-    if(this.state.menuopen==false) {
+    if(this.state.menuopen===false) {
       this.setState({displaymain:'none'})
       this.setState({menu:<Menu></Menu>})
       this.setState({menuopen:true})
