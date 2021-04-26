@@ -1,30 +1,133 @@
+@keyframes fadein {
+  from {
+    background: rgba( 255, 255, 255, 0.0 );
+    box-shadow: none;
+    border: none;
+  }
+  to {
+    background: rgba( 255, 255, 255, 0.30 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 nav {
+  position: absolute;
   display: flex;
-  background-color: black;
   color: white;
+  align-items: center;
+  background: rgba( 255, 255, 255, 0.10 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 8.0px );
+  -webkit-backdrop-filter: blur( 8.0px );
   width: 100%;
   height: 10vh;
+  top: 0%;
+  left: 0%;
 }
 
-#heroimage {
-  height: 90vh;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url('../yogahero.jpg');
-  background-position: center;
-  background-size: cover;
+nav h1 {
+  flex: 1;
 }
 
-h3 {
-  color: whitesmoke;
-  background: linear-gradient(to right,  rgba(119, 119, 119, 0.493), rgba(0, 0, 0, 0.678));
-}
-
-.section {
+#main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
+  color: whitesmoke;
+  text-align: center;
+  position: relative;
+  width: 75%;
+  background: rgba( 255, 255, 255, 0.30 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 8.0px );
+  -webkit-backdrop-filter: blur( 8.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
+
+#main img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+#first {
+  animation: fade 2s linear;
+}
+
+#second {
+  animation-name: fade;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+}
+
+
+#third {
+  animation-name: fade;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 300vh;
+  background: #67B26F;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4ca2cd, #67B26F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+.images {
+  color: white;
+  text-align: center;
+  width: 80%;
+  background: rgba( 255, 255, 255, 0.30 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 8.0px );
+  -webkit-backdrop-filter: blur( 8.0px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+
+.images img {
+  width: 100%;
+  height: 75%;
+}
+
+.joinus {
+  animation-name: fade;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  height: 50px;
+  width: 200px;
+  background: #ff00cc;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #333399, #ff00cc);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  
+}
+
+.joinus:hover {
+  opacity: 0.8;
+  
+  box-shadow: 0 0 8px 0 rgba(0,0,0,0.25);
+}
+
