@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App.jsx';
+import registerServiceWorker from './registerServiceWorker';
+import netlifyIdentity from 'netlify-identity-widget'
 import reportWebVitals from './reportWebVitals';
 
+netlifyIdentity.init()
 ReactDOM.render(
   <React.StrictMode>
     <App />

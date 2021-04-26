@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import './css/App.css';
 import ashramboys from './anandashram.jpg';
 import heroimage from './anandimage.jpg';
+import registerServiceWorker from './registerServiceWorker';
+import netlifyIdentity from 'netlify-identity-widget'
 
 export default class App extends Component {
   
@@ -18,6 +20,7 @@ export default class App extends Component {
         <p id='second'>Thousands of tutorials</p>
         <p id='third'>Absolutely free</p>
         <button className='joinus'>Join now</button>
+        {netlifyIdentity.init}
       </div>
       <div className="images">
         <h1>Come and experience the bliss of yoga</h1>
