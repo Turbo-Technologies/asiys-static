@@ -1,6 +1,6 @@
 
-let initialState = {
-    list:['h'],
+const initialState = {
+    list:'not there',
     error:{
         done:false,
         message:''
