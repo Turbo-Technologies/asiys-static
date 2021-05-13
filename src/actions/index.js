@@ -2,7 +2,7 @@ import axios from "axios";
 import store from '../store'
 
 export const  getprofiles = () => {
-    axios.get('http://127.0.0.1:8000/api/profile/').then(
+    axios.get('http://asiys-backend.herokuapp.com/api/profile/').then(
   res => {
     store.dispatch(
       {
@@ -14,7 +14,7 @@ export const  getprofiles = () => {
 )
 
 }  
-export const gettutorials = () => {axios.get('http://127.0.0.1:8000/api/tutorial/').then(
+export const gettutorials = () => {axios.get('http://asiys-backend.herokuapp.com/api/tutorial/').then(
   (res) =>
   {
     store.dispatch(
@@ -36,5 +36,33 @@ export const gettutorials = () => {axios.get('http://127.0.0.1:8000/api/tutorial
 )
 }
 
+export const gettutorial = (id) => {
+  axios.get('http://asiys-backend.herokuapp.com/api/tutorial/'+ id + '/').then(res => {
+
+    store.dispatch({
+      type:'GETTUTORIAL',
+      payload:res.data
+    })
+  }).catch(
+    err => {
+      store.dispatch({
+        type:'ERROR',
+        payload:err.message
+      })
+    })
+}
 
 
+export const signin = (username, email, password) => {
+  axios.post('asiys-backend.herokuapp.com/api/register', {username:username, email:email, password:password}).then(res => {
+    store.dispatch({
+      type:'REGISTER',
+      payload:res.data
+    })
+  }).catch(err => {
+    store.dispatch({
+      type:'REGISTERERROR',
+      payload:err.message
+    })
+  })
+}

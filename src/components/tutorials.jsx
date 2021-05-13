@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useSelector } from "react-redux";
 import '../css/home.css';
 import '../css/tutorials.css';
@@ -13,7 +13,7 @@ function DisplayHome(props) {
     if (error.done === false) {
         console.log(props)
    return(
-        <div id="container" style={{ height: '100vh' }}>
+        <div id="container">
             {props.tutorials.list.map(tut => {
                 return (
                     <div className='tutorial'>
@@ -36,21 +36,25 @@ function DisplayHome(props) {
 
 export default function Tutorials() {
     gettutorials()
-  
-    const tutorials = useSelector(state => state.tutorials)
-    const list = tutorials.list
-    console.log(tutorials.list)
-    console.log(list);
-    console.log(tutorials)
-    console.log(tutorials['list']);
+    const tutorials = useSelector(state => state.tutorials.list)
+    const error = useSelector(state => state.tutorials.error.message)
+    
 
     return (
         <div>
         <nav><a href='/'>Anand Ashram</a> freemium</nav>
             
-        <div id="container" style={{ height: '100vh' }}> 
-       {tutorials.error.done }
-                {tutorials.list}
+        <div id="container"> 
+       
+                {tutorials.map(tut => {
+                    return (<div className="tutorial">
+                        <h1>{tut.title}</h1>
+                        <p>{tut.summary}</p>
+                        <a href={'/tutorial/'+ tut.id}>
+                            <button className="joinus">Read More</button>
+                        </a>
+                    </div>)
+                })}
         </div>
         </div>
     )

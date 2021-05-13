@@ -1,10 +1,11 @@
 
 const initialState = {
-    list:'not there',
+    list:['not there'],
     error:{
         done:false,
         message:''
-    }
+    },
+    item:{}
 }
 
 const tutorialreducer = (state=initialState, action) => {
@@ -15,6 +16,9 @@ const tutorialreducer = (state=initialState, action) => {
         case 'ERROR':
             state.error.done = true
             state.error.message = action.payload
+            return state
+        case 'GETTUTORIAL':
+            state.item = action.payload
             return state
         default:
             return state

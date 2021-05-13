@@ -5,6 +5,7 @@ import {Switch, Route} from 'react-router-dom';
 import home from './home';
 import about from './about';
 import Tutorialdetail from "./tutorialdetail";
+import Register from './register.jsx'
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path='/about' component={about} exact/>
         <Route path='/tutorial/' component={Tutorials} exact/>
         <Route path='/tutorial/:id/' component={Tutorialdetail}/> 
+        <Route path='/register/' component={Register}/>
          {/* <Route component={erorr}/> */}
         
         
