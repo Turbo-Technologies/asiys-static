@@ -1,11 +1,10 @@
 
 import React, {useState} from 'react';
 import { useSelector } from "react-redux";
-import { signin } from "../actions";
 
-function MainForm(props) {
+function MainForm() {
     const [username, setusername] = useState('')
-    const [password, setPassword] = useState('pass')
+    const [password, setPassword] = useState('')
     const usernameUpdate = (val) => {setusername(
         () => {return val.target.value}
     )};
@@ -14,7 +13,7 @@ function MainForm(props) {
         <>
         <form>
             <input type="text" placeholder='Your Name' value={username} onChange={usernameUpdate}/>
-            <input type="text" placeholder='Your Password' value={password} onchange={(e) => {setPassword(() => {return e.target.value})}}/>
+            <input type="text" placeholder='Your Password' value={password} onchange={passwordUpdate}/>
         </form>
         </>
     )

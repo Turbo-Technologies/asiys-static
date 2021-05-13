@@ -8,14 +8,14 @@ export default function home() {
             
       <div id='container'>
         <nav><a href='/'>Anand Ashram</a> freemium</nav>
-        <div id="main">
+        <div id="main" style={{margin:'40px'}}>
           <img src={heroimage} alt="" />
           <h1>Anand Ashram</h1>
           <p id='first'>Learn Yoga anytime anywhere</p>
           <p id='second'>Thousands of tutorials</p>
           <button className='joinus'>Join now</button>
         </div>
-        <div className="images">
+        <div className="images" style={{margin:'40px'}}>
           <h1>Come and experience the bliss of yoga</h1>
           <img src={ashramboys} alt="" />
         </div>
