@@ -1,0 +1,36 @@
+@keyframes slidein {
+    from {
+        top:0%;
+        left:-100%;
+    }
+    to {
+        top:0%;
+        left:0%;
+    }
+}
+
+.menu {
+    height: 100vh;
+    width:100%;
+    z-index: 2;
+    position: absolute;
+    opacity: 0.8;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-evenly;
+    animation: 2s slidein ease; 
+    top:0%;
+    left:0%;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: x-large;
+}
+
+html, body {
+    margin:0px;
+}

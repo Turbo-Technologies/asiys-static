@@ -1,0 +1,23 @@
+.container-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    width:'100%'
+}
+
+.btn {
+    height: 5vh;
+    background-color: rgb(0, 183, 255);
+    color: white;
+    text-decoration: none;
+}
+
+
+.btn:hover {
+    background-color: violet;
+    color: white;
+    height: 5vh;
+    display: block;
+}

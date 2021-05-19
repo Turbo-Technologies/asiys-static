@@ -1,6 +1,6 @@
 
 const initialState = {
-    list:['not there'],
+    list:[],
     error:{
         done:false,
         message:''

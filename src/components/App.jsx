@@ -6,10 +6,13 @@ import home from './home';
 import about from './about';
 import Tutorialdetail from "./tutorialdetail";
 import Register from './register.jsx'
+import Navabar from './navbar'
+import '../css/app.css'
 
 export default function App() {
   return (
     <main>
+      <Navabar/>
       <Switch>
         <Route path='/' component={home} exact/>
          

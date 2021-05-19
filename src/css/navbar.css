@@ -1,0 +1,38 @@
+@keyframes grow {
+    from {
+        font-size: large;
+    }
+    to {
+        font-size: xx-large;
+    }
+}
+
+
+nav {
+    background-color: rgb(27, 177, 236);
+    height: 10vh;
+    display: flex;
+    color: white;
+    width: 100%;
+    z-index:1
+}
+
+nav a {
+    padding: 5px;
+    flex: 1;
+    text-decoration: none;
+    color: white;
+    display: block;
+    font-size: x-large;
+}
+
+nav a:hover {
+    animation: 2s grow ease;
+    font-size: xx-large;
+}
+
+nav a:single-button {
+    animation: 2s grow ease;
+    font-size: xx-large;
+
+}

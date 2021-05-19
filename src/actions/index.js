@@ -45,7 +45,7 @@ export const gettutorial = (id) => {
     })
   }).catch(
     err => {
-      store.dispatch({
+      store.dispatch({ 
         type:'ERROR',
         payload:err.message
       })
@@ -64,5 +64,6 @@ export const signin = (username, email, password) => {
       type:'REGISTERERROR',
       payload:err.message
     })
+    console.log('error = ', err.message)
   })
 }

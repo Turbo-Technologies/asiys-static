@@ -1,8 +1,6 @@
 import React from 'react';
-import '../css/tutorialdetail.css'
 import { useSelector } from "react-redux";
 import { gettutorial } from "../actions";
-
 export default function Tutorialdetail(props) {
     console.log(props)
     gettutorial(props.match.params.id)
@@ -13,16 +11,15 @@ export default function Tutorialdetail(props) {
     
     
     return (
-        <div>
-            <nav><a href='/'>Anand Ashram</a></nav>
-            <div className='container'>
-                <div id="main">
-                    {error ? <h1>{msg}</h1> : ''}
-                    <h1>{tutorial.title}</h1>
-                    <p>{tutorial.content}</p>
-                </div>
-
+        <>
+            <div className='container-center'>
+                {error ? <h1>{msg}</h1> : ''}
             </div>
-        </div>
+            <div>
+                <h1>{tutorial.title}</h1>
+                <p>{tutorial.content}</p>
+            </div>
+
+            </>
     )
 }

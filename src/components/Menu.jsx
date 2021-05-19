@@ -1,12 +1,14 @@
-import './css/menu.css'
+import '../css/menu.css'
 
 import React from 'react'
 
 export default function Menu() {
     return (
-        <section>
-            <a href="/about/">About us</a>
+        <div className='menu'>
+            <a href="/register/">Register</a>
             <a href="/about/">Book Class</a>
-        </section>
+
+            <a href="/tutorial/">All Tutorials</a>
+        </div>
     )
 }
