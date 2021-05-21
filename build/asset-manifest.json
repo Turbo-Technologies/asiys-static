@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fcc8b0fb.chunk.css",
+    "main.js": "/static/js/main.8f3d287f.chunk.js",
+    "main.js.map": "/static/js/main.8f3d287f.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.123718ad.js",
+    "runtime-main.js.map": "/static/js/runtime-main.123718ad.js.map",
+    "static/js/2.b9defaac.chunk.js": "/static/js/2.b9defaac.chunk.js",
+    "static/js/2.b9defaac.chunk.js.map": "/static/js/2.b9defaac.chunk.js.map",
+    "static/js/3.a86a9e75.chunk.js": "/static/js/3.a86a9e75.chunk.js",
+    "static/js/3.a86a9e75.chunk.js.map": "/static/js/3.a86a9e75.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.fcc8b0fb.chunk.css.map": "/static/css/main.fcc8b0fb.chunk.css.map",
+    "static/js/2.b9defaac.chunk.js.LICENSE.txt": "/static/js/2.b9defaac.chunk.js.LICENSE.txt",
+    "static/media/anandashram.5d6b0cde.jpg": "/static/media/anandashram.5d6b0cde.jpg",
+    "static/media/anandimage.9d26d8da.jpg": "/static/media/anandimage.9d26d8da.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.123718ad.js",
+    "static/js/2.b9defaac.chunk.js",
+    "static/css/main.fcc8b0fb.chunk.css",
+    "static/js/main.8f3d287f.chunk.js"
+  ]
+}
