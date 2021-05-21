@@ -8,6 +8,7 @@ import Tutorialdetail from "./tutorialdetail";
 import Register from './register.jsx'
 import Navabar from './navbar'
 import '../css/app.css'
+import Error from './erorr'
 
 export default function App() {
   return (
@@ -20,7 +21,7 @@ export default function App() {
         <Route path='/tutorial/' component={Tutorials} exact/>
         <Route path='/tutorial/:id/' component={Tutorialdetail}/> 
         <Route path='/register/' component={Register}/>
-         {/* <Route component={erorr}/> */}
+          <Route component={Error}/>
         
         
         
@@ -28,4 +29,3 @@ export default function App() {
     </main>
   )
 }
-

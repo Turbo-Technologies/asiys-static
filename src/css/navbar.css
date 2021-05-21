@@ -7,12 +7,23 @@
     }
 }
 
+@keyframes fade {
+    from {
+        opacity: 1;
+        pointer-events: all;
+    }
+    to {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
 
 nav {
     background-color: rgb(27, 177, 236);
     height: 10vh;
     display: flex;
     color: white;
+    align-items: center;
     width: 100%;
     z-index:1
 }
@@ -35,4 +46,29 @@ nav a:single-button {
     animation: 2s grow ease;
     font-size: xx-large;
 
+}
+
+.alert {
+    background-color: rgb(253, 79, 108);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: white;
+}
+
+.alert .text {
+    flex-grow: 1;
+}
+
+.alert-fade {
+    animation: 2s fade ease;
+    opacity: 0;
+    pointer-events: none; 
+    background-color: rgb(253, 79, 108);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    color: white;
 }

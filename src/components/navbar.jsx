@@ -33,7 +33,7 @@ export default function Navabar() {
         <>
        <nav>
            <a href='/'>Anand Ashram</a>
-           <div style={{zIndex:3}}>
+           <div style={{ zIndex:3, position:'sticky'}}>
             <IconButton onClick={togglemenu}>{menuButton}</IconButton>
            </div>
        </nav>
