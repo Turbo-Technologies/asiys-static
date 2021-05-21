@@ -1,18 +1,21 @@
 import React, {useState} from 'react'
 import '../css/navbar.css'
 import Menu from './Menu'
+import MenuIcon from "@material-ui/icons/Menu";
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close'
 
 export default function Navabar() {
     const [menuopen, setMenuopen] = useState(false)
-    const [menuButton, setMenuButton] = useState('Menu')
+    const [menuButton, setMenuButton] = useState(<MenuIcon/>)
     function togglemenu() {
         setMenuopen((prevState) => {return !prevState})
         setMenuButton( () => {
             if (menuopen === false) {
-                return 'Exit'
+                return <CloseIcon/>
             }
             else {
-                return 'Menu'
+                return (<MenuIcon/>)
             }
         }
             
@@ -30,7 +33,9 @@ export default function Navabar() {
         <>
        <nav>
            <a href='/'>Anand Ashram</a>
-           <button onClick={togglemenu} style={{zIndex:3}}>{menuButton}</button>
+           <div style={{zIndex:3}}>
+            <IconButton onClick={togglemenu}>{menuButton}</IconButton>
+           </div>
        </nav>
        {showmenu()}
         

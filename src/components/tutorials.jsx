@@ -1,9 +1,9 @@
 import React from 'react';
 import { useSelector } from "react-redux";
 import { gettutorials } from "../actions/index";
-import Navabar from './navbar';
 import '../css/app.css'
-import { Button } from 'bootstrap';
+import { IconButton, Button } from "@material-ui/core";
+import  SearchIcon  from "@material-ui/icons/Search";
 
 
 
@@ -11,12 +11,20 @@ export default function Tutorials() {
     gettutorials()
     const tutorials = useSelector(state => state.tutorials.list)
     const errorMessage = useSelector(state => state.tutorials.error.message)
-    const error = <> <h1>{errorMessage}</h1> <a href="/tutorial/" className='btn'>Try Again</a> </>
+    const error = <> 
+    <h1>{errorMessage}</h1>
+     <Button variant='contained' color="primary">
+         <a href="/tutorial/" style={{color:'white', textDecoration:'none'}}>Try Again</a>
+     </Button>
+    </>
     
 
     return (
-        <div>
-            
+        <>
+           <div style={{display:'flex', width:'100%'}}>
+               <input type="text" id="" style={{flexGrow:1}}/>
+               <IconButton variant='contained' color='primary'><SearchIcon/></IconButton>
+           </div>
         <div className="container-center"> 
                 {error}
                 {tutorials.map(tut => {
@@ -29,7 +37,6 @@ export default function Tutorials() {
                     </div>)
                 })}
         </div>
-        </div>
+        </>
     )
 }
-

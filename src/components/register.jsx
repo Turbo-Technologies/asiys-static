@@ -1,9 +1,10 @@
 import { signin } from "../actions/index";
 import React, {useState} from 'react';
 import { useSelector } from "react-redux";
+import Button from '@material-ui/core/Button'
 
 function MainForm() {
-
+    const error = useSelector(state => state.user.error.message)
     const [username, setusername] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -21,6 +22,10 @@ function MainForm() {
     const Submission = () => {
         signin(username, email, password)
         
+        if (error !== '') {
+            alert(error)
+        }
+        
     }
     return (
         <>
@@ -29,7 +34,7 @@ function MainForm() {
             <input type="text" name='username' placeholder='Your Name' value={username} onChange={usernameUpdate} style={{height:'10vh', width:'100%', borderRadius:'2px', textAlign:'center', fontSize:'1.5rem'}}/>
             <input type="password" name='password' placeholder='Your Password' value={password} onChange={passwordUpdate} style={{height:'10vh', width:'100%', borderRadius:'2px', textAlign:'center', fontSize:'1.5rem'}}/>
             <input type="email" name='email' placeholder='Your email' value={email} onChange={(val) => {setEmail(()=> {return val.target.value})}} style={{height:'10vh', width:'100%', borderRadius:'2px', textAlign:'center', fontSize:'1.5rem'}}/>
-            <button style={{height:'10vh', width:'100%', fontFamily:'sans-serif', fontSize:'1.5em', background:'blue', color:'white', borderRadius:'10px'}} onClick={Submission}>Submit</button>
+            <Button variant="contained" color="primary" size="large" onClick={Submission}>Submit</Button>
         </form>
         <p style={{fontSize:'1rem'}}>Already have an account ? <a href="/login/"> log in </a></p>
         </>
