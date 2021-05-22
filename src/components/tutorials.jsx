@@ -42,15 +42,22 @@ export default function Tutorials() {
         
     }, [])
     gettutorials()
-   
     const load = useSelector(state => state.tutorials.loading)
     const tutorials = useSelector(state => state.tutorials.list)
+    const error = useSelector(state => state.tutorials.error.message)
+    const showerror = () => {
+        if (error === '') {
+            return <Main tutorials={tutorials}/>
+        }
+        return <div className="container-center"><h1>{error}</h1></div>
+    }
+   
     
     return (
         <>
         {load ? <div className="container-center">
                     <CircularProgress/>
-                </div> : <Main tutorials={tutorials}/>}
+                </div> : showerror()}
 
         </>
     )
