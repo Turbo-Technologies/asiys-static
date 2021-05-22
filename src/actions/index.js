@@ -54,7 +54,7 @@ export const gettutorial = (id) => {
 
 
 export const signin = (username, email, password) => {
-  axios.post('asiys-backend.herokuapp.com/api/register', {username:username, email:email, password:password}).then(res => {
+  axios.post('http://asiys-backend.herokuapp.com/api/auth/register', {username:username, email:email, password:password}).then(res => {
     store.dispatch({
       type:'REGISTER',
       payload:res.data
@@ -62,8 +62,15 @@ export const signin = (username, email, password) => {
   }).catch(err => {
     store.dispatch({
       type:'REGISTERERROR',
-      payload:err.message
+      payload:err
     })
     console.log('error = ', err.message)
+  })
+}
+
+
+export const loadTutorials = () => {
+  store.dispatch({
+    type:'GETTINGTUTORIALS'
   })
 }

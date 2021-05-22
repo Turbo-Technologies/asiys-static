@@ -1,9 +1,14 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useSelector } from "react-redux";
-import { gettutorial } from "../actions";
+import { gettutorial, loadTutorials } from "../actions";
+import { CircularProgress } from "@material-ui/core";
+
 export default function Tutorialdetail(props) {
-    console.log(props)
+    useEffect(() => {
+        loadTutorials()
+    }, [])
     gettutorial(props.match.params.id)
+    const load = useSelector(state => state.tutorials.load)
     const tutorial = useSelector(state => state.tutorials.item)
     const error = useSelector(state => state.tutorials.error.done)
     const msg  = useSelector(state => state.tutorials.error.message)
@@ -12,14 +17,9 @@ export default function Tutorialdetail(props) {
     
     return (
         <>
-            <div className='container-center'>
-                {error ? <h1>{msg}</h1> : ''}
-            </div>
-            <div>
-                <h1>{tutorial.title}</h1>
-                <p>{tutorial.content}</p>
-            </div>
-
-            </>
+            {load ? <div className="container-center">
+                    <CircularProgress/>
+                </div> : 'happy'}
+        </>
     )
 }
