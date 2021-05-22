@@ -27,7 +27,7 @@ function MainForm() {
         if (error === true) {
             setAlertopen(() => {return true})
         }
-        if (logggedin === true) {
+        if (loggedin === true) {
             const cookie = new Cookies();
             cookie.set('user', {
                 username:username,
