@@ -1,6 +1,5 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
-import Navabar from './navbar'
 
 import heroimage from '../images/anandimage.jpg';
 import Carousel from './Carousel'
