@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useEffect} from 'react';
 import { useSelector } from "react-redux";
 import { gettutorials, loadTutorials } from "../actions/index";
 import '../css/app.css'
@@ -45,25 +45,7 @@ export default function Tutorials() {
    
     const load = useSelector(state => state.tutorials.loading)
     const tutorials = useSelector(state => state.tutorials.list)
-    const errorMessage = useSelector(state => state.tutorials.error.message)
-    const display = () => {
-        if (load === true) {
-            return(
-                <div className="container-center">
-                    <CircularProgress/>
-                </div>
-            )
-        }
-        else {
-            if (tutorials === []) {
-                return errorMessage
-            }
-            else {
-                return <Main tutorials={tutorials}/>
-            }
-        }
-        
-    }
+    
     return (
         <>
         {load ? <div className="container-center">

@@ -10,8 +10,6 @@ export default function Tutorialdetail(props) {
     gettutorial(props.match.params.id)
     const load = useSelector(state => state.tutorials.load)
     const tutorial = useSelector(state => state.tutorials.item)
-    const error = useSelector(state => state.tutorials.error.done)
-    const msg  = useSelector(state => state.tutorials.error.message)
     console.log(tutorial);
     
     
