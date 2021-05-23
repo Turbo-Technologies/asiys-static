@@ -74,3 +74,33 @@ export const loadTutorials = () => {
     type:'GETTINGTUTORIALS'
   })
 }
+
+export const fakesignin = (username, email, password) => {
+  store.dispatch({
+    type:'REGISTER',
+    payload:{
+      username:username,
+      email:email,
+      password:password
+    }
+  })
+}
+
+export const loadUser = () => {
+  store.dispatch({
+    type:'BUFFERING'
+  })
+}
+
+export const refresh = () => {
+  store.dispatch({
+    type:'REFRESH'
+  })
+}
+
+
+export const logout = () => {
+  store.dispatch({
+    type:"LOGOUT"
+  })
+}

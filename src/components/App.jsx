@@ -6,9 +6,11 @@ import home from './home';
 import about from './about';
 import Tutorialdetail from "./tutorialdetail";
 import Register from './register.jsx'
+import Dashboard from './dashboard'
 import Navabar from './navbar'
 import '../css/app.css'
 import Error from './erorr'
+import Login from './login'
 
 export default function App() {
   return (
@@ -20,7 +22,11 @@ export default function App() {
         <Route path='/about' component={about} exact/>
         <Route path='/tutorial/' component={Tutorials} exact/>
         <Route path='/tutorial/:id/' component={Tutorialdetail}/> 
-        <Route path='/register/' component={Register}/>
+
+        <Route path='/dashboard/' component={Dashboard}/> 
+        <Route path='/register/' component={Register} exact/>
+
+        <Route path='/login/' component={Login}/>
           <Route component={Error}/>
         
         

@@ -49,7 +49,7 @@ export default function Tutorials() {
         if (error === '') {
             return <Main tutorials={tutorials}/>
         }
-        return <div className="container-center"><h1>{error}</h1></div>
+        return (<div className="container-center"><h1>{error}</h1><Button variant='contained' color='primary'>Try Again</Button></div>)
     }
    
     

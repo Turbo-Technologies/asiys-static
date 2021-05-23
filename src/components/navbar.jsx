@@ -1,13 +1,30 @@
 import React, {useState} from 'react'
 import '../css/navbar.css'
-import Menu from './Menu'
-import MenuIcon from "@material-ui/icons/Menu";
-import IconButton from '@material-ui/core/IconButton';
+import { useSelector } from 'react-redux'
+import {logout} from '../actions/'
 import CloseIcon from '@material-ui/icons/Close'
+import MenuIcon from '@material-ui/icons/Menu'
+import HomeIcon from '@material-ui/icons/Home'
+import BookIcon from '@material-ui/icons/Book'
+import SearchIcon from '@material-ui/icons/Search'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle'
+import { Drawer, IconButton, Button, Avatar } from "@material-ui/core";
 
 export default function Navabar() {
     const [menuopen, setMenuopen] = useState(false)
     const [menuButton, setMenuButton] = useState(<MenuIcon/>)
+    const loggedin = useSelector(state => state.user.loggedin)
+    const name = useSelector(state => state.user.username)
+    const loggedintools = (<>
+            <p>
+                <IconButton><Avatar><img src="" alt={name}/> </Avatar></IconButton>
+                <Button href='/dashboard'>Your Account</Button>
+            </p>
+            <p>
+                <IconButton><CloseIcon/></IconButton>
+                <Button onClick={logout} variant='text'>Logout</Button>
+            </p>
+        </>)
     function togglemenu() {
         setMenuopen((prevState) => {return !prevState})
         setMenuButton( () => {
@@ -17,18 +34,10 @@ export default function Navabar() {
             else {
                 return (<MenuIcon/>)
             }
-        }
-            
+        }    
         )
     }
-    let showmenu = () => {
-        if (menuopen === false) {
-            return ''
-        }
-        else {
-            return  <Menu/> 
-        }
-    }
+    
     return (
         <>
        <nav>
@@ -37,7 +46,14 @@ export default function Navabar() {
             <IconButton onClick={togglemenu}>{menuButton}</IconButton>
            </div>
        </nav>
-       {showmenu()}
+       <Drawer open={menuopen} variant='persistent'>
+            <p><IconButton><HomeIcon/></IconButton><Button href='/'>Home</Button></p>
+            <p><IconButton><SearchIcon/></IconButton><Button href='/about'>About</Button></p>
+            {loggedin ? loggedintools :
+            <p><IconButton><AccountCircleIcon/></IconButton><Button href='/register'>Register</Button></p>}
+            <p><IconButton><BookIcon/></IconButton><Button href='/tutorial/'>Tutorials</Button></p>
+            
+       </Drawer>
         
             
         {/* <Nav className="mr-auto">

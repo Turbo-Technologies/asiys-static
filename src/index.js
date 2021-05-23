@@ -5,8 +5,9 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
 import store from './store'
 import {BrowserRouter} from 'react-router-dom'
+import {refresh} from './actions/index'
 
-
+refresh()
 
   ReactDOM.render(
     <Provider store={store}>
