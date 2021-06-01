@@ -1,12 +1,16 @@
 import React from 'react'
-// import Carousel from './Carousel'
+import '../css/home.css'
+import heroimage from '../images/anandashram.jpg'
 
 export default function home() {
     return (
       <>
-        <h2 style={{height:'7vh', padding:'1rem', textAlign:'center'}}>
-        	Come, Fall in Love with Nature
-        </h2>
+       <img src={heroimage} alt="" id='hero'/>
+       <p className='hero-paragraph'>
+         <span className='hero-text'>
+         Come, fall in love with nature
+         </span>
+        </p>
         
         
         

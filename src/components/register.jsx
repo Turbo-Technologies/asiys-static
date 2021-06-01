@@ -23,7 +23,6 @@ function MainForm() {
     const [error, setError] = useState('')
     const password2Update = (e) => {setPassword2(() => {return e.target.value})};
     const usernameUpdate = (val) => {setusername(()=> {return val.target.value})}
-    const loggedin = useSelector(state => state.user.loggedin)
     const passwordUpdate = (e) => {setPassword(() => {return e.target.value})};
     const emailUpdate = (e) => {setEmail(() => {return e.target.value})};
     const ShowSuccessMessage = () => {setSuccessAlertOpen((prevstate) => {return !prevstate})}
@@ -70,8 +69,8 @@ function MainForm() {
             <Button variant="contained" color="primary" size="large" style={{ margin:"1rem"}} onClick={validate}>
                 Create your Account {loading ? <CircularProgress color="secondary"/> : ''}
             </Button>
-        </form>
         <p style={{fontSize:'1rem', margin:"1rem"}}>Already have an account ? <a href="/login/"> log in </a></p>
+        </form>
         </>
     )
     
