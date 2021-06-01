@@ -1,10 +1,11 @@
 import { signin,  loadUser } from "../actions/index";
 import React, {useState} from 'react';
 import { useSelector } from "react-redux";
-import {Button, Input, IconButton, Snackbar, CircularProgress} from '@material-ui/core/'
+import {Button, TextField, IconButton, Snackbar, CircularProgress} from '@material-ui/core/'
 import CloseIcon from '@material-ui/icons/Close'
 import Dashboard from './dashboard'
 
+const joi = require('joi')
 
 
 function MainForm() {
@@ -17,8 +18,9 @@ function MainForm() {
 
 
     const loading = useSelector(state => state.user.loading)
-    const error = useSelector(state => state.user.error.done)
+    const errorDone = useSelector(state => state.user.error.done)
     const errorMessage = useSelector(state => state.user.error.message.message)
+    const [error, setError] = useState('')
     const password2Update = (e) => {setPassword2(() => {return e.target.value})};
     const usernameUpdate = (val) => {setusername(()=> {return val.target.value})}
     const loggedin = useSelector(state => state.user.loggedin)
@@ -27,14 +29,25 @@ function MainForm() {
     const ShowSuccessMessage = () => {setSuccessAlertOpen((prevstate) => {return !prevstate})}
     const validate = () => {
         loadUser()
-        signin(username, email, password)
-        if (loading === false) {
-            if (error === true) {
-                setAlertopen(true)
-            }
+        const schema = joi.object({
+            username:joi.string().required(),
+            email:joi.string().email( {tlds: {allow: false} }).required(),
+            password: joi.string().min(8).max(100).required(),
+            password2: joi.any().valid(joi.ref('password')).required()
 
-            if (loggedin === true) {
-                ShowSuccessMessage()
+        })
+        let response = schema.validate(
+            {username:username, email:email, password:password, password2:password2}
+        )
+        if  (response.error) {
+            setError(() => {return response.error.details[0].message})
+            setAlertopen(true)
+        }
+        else {
+            signin(username, email, password)
+            if (errorDone) {
+                setError(() => {return errorMessage})
+                setAlertopen(true)
             }
         }
     }
@@ -42,7 +55,7 @@ function MainForm() {
     
     return (
         <>
-        <Snackbar open={alertopen} message={errorMessage} action={
+        <Snackbar open={alertopen} message={error} action={
         <IconButton onClick={closeAlert} color='secondary'>
             <CloseIcon/>
         </IconButton>}/>
@@ -50,15 +63,15 @@ function MainForm() {
                 <IconButton onClick={ShowSuccessMessage}> <CloseIcon/></IconButton>}/>
         <form style={{height:'50vh', width:"75%", display:'flex', justifyContent:'space-evenly', flexDirection:'column', alignItems:'center'}}>
             <h1 style={{ fontFamily:"sans-serif"}}>Create an Account</h1>
-            <Input type='text' onChange={usernameUpdate} value={username} placeholder="Username"/>
-            <Input type="password" onChange={passwordUpdate} value={password} placeholder='Password'/>
-            <Input type="password" onChange={password2Update} value={password2} placeholder='Password again'/>
-            <Input type="email" value={email} onChange={emailUpdate} placeholder="Email"/>
-            <Button variant="contained" color="primary" size="large" onClick={validate}>
+            <TextField type='text' onChange={usernameUpdate} value={username} style={{ margin:"1rem"}} label="Username"/>
+            <TextField type="password" onChange={passwordUpdate} variant="standard" style={{ margin:"1rem"}} value={password} label='Password'/>
+            <TextField type="password" onChange={password2Update} value={password2} style={{ margin:"1rem"}} label='Password again'/>
+            <TextField type="email" value={email} onChange={emailUpdate} style={{ margin:"1rem"}} label="Email"/>
+            <Button variant="contained" color="primary" size="large" style={{ margin:"1rem"}} onClick={validate}>
                 Create your Account {loading ? <CircularProgress color="secondary"/> : ''}
             </Button>
         </form>
-        <p style={{fontSize:'1rem'}}>Already have an account ? <a href="/login/"> log in </a></p>
+        <p style={{fontSize:'1rem', margin:"1rem"}}>Already have an account ? <a href="/login/"> log in </a></p>
         </>
     )
     
